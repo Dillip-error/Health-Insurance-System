@@ -10,10 +10,12 @@
 thead {
 	background: black;
 }
-td {
+/* td {
 	background: silver;
-}
+} */
 </style>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link
 	href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"
 	rel="stylesheet" type="text/css">
@@ -56,15 +58,17 @@ td {
 				<td>${obj.email}</td>
 				<td>${obj.role}</td>
 
-				<td><a href="edit?cid=${obj.regId}">EDIT</a>
+				<td>
+				<button class="btn btn-warning"><a href="edit?cid=${obj.regId}">EDIT</a></button>
 				 <c:choose>
 						<c:when test="${obj.deleteStatus eq 'null'}">
 
-							<a href="delete?cid=${obj.regId}"
-								onClick="return confirmDelete()">DELETE</a>
+							<button class="btn btn-danger"><a href="delete?cid=${obj.regId}"
+								onClick="return confirmDelete()">DELETE</a></button>
 						</c:when>
 						<c:otherwise>
-							<a href="active?cid=${obj.regId}" onClick="return confirmActive()">ACTIVATE</a>
+							<button class="btn btn-light"><a href="active?cid=${obj.regId}" onClick="return confirmActive()">ACTIVATE</a></button>
+							
 							
 						</c:otherwise>
 					</c:choose>

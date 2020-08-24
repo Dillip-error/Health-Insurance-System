@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ait.binding.CaseWorkerManagementBind;
@@ -48,7 +47,7 @@ public class CaseWorkerManagementController {
 		attributes.addFlashAttribute("caseWorkerManagementEntity", new CaseWorkerManagementEntity());
 		isSave = service.saveCaseWorkerManagement(bind);
 		if (isSave) {
-			//mailUtils.sendUserAccUnlockMail2(bind);
+			mailUtils.sendUserAccUnlockMail2(bind);
 			attributes.addFlashAttribute("msg", "Account almost created.Check your email to unlock account");
 		} else {
 			attributes.addFlashAttribute("msg", "AccountCreationFaild");
