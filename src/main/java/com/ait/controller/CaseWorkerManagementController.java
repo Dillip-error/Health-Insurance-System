@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ait.binding.CaseWorkerManagementBind;
@@ -93,5 +94,23 @@ public class CaseWorkerManagementController {
 		return "caseWorkerManagementForm";
 		
 	}
+	
+	
+	@GetMapping("/active")
+	public String editStatusForActive(@RequestParam("cid") Integer conId,Model model) {
+		Integer updateStatusCode = service.updateStatusCode(conId);
+		if(updateStatusCode <= 0) {
+			System.out.println(updateStatusCode);
+			return "redirect:/account/all";
+		}
+		else {
+			System.out.println(updateStatusCode);
+			return "redirect:/account/all";
+		}
+		
+		
+		
+	}
+	
 
 }

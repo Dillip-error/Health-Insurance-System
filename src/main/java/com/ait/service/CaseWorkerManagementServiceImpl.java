@@ -97,4 +97,10 @@ public class CaseWorkerManagementServiceImpl implements ICaseWorkerManagementSer
 		return isUpdate;
 	}
 
+	@Override
+	public Integer updateStatusCode(Integer id) {
+		Integer updateStatus = repo.updateStatus(id);
+		return updateStatus;
+	}
+
 }

@@ -6,9 +6,17 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-
+<style type="text/css">
+thead {
+	background: black;
+}
+td {
+	background: silver;
+}
+</style>
 <link
-	href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+	href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"
+	rel="stylesheet" type="text/css">
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script type="text/javascript"
@@ -32,7 +40,7 @@
 </head>
 <body>
 	<table border="1" id="account">
-		<thead>
+		<thead style="color: red;">
 			<tr>
 				<th>S.NO</th>
 				<th>NAME</th>
@@ -47,34 +55,28 @@
 				<td>${obj.firstName}${obj.lastName}</td>
 				<td>${obj.email}</td>
 				<td>${obj.role}</td>
-				
-				<td>
-				<a href="edit?cid=${obj.regId}">EDIT</a>
-				
-				
-				<c:choose>
-    <c:when test="${obj.deleteStatus eq null}">
-        
-   <a href="delete?cid=${obj.regId}" onClick="return confirmDelete()">DELETE</a>
-    </c:when>    
-    <c:otherwise>
-      <a  onClick="return confirmActive()">ACTIVATE</a>
-    </c:otherwise>
-</c:choose>
-				
-				
-				<%-- <c:if test="${obj.deleteStatus eq null}">
+
+				<td><a href="edit?cid=${obj.regId}">EDIT</a>
+				 <c:choose>
+						<c:when test="${obj.deleteStatus eq 'null'}">
+
+							<a href="delete?cid=${obj.regId}"
+								onClick="return confirmDelete()">DELETE</a>
+						</c:when>
+						<c:otherwise>
+							<a href="active?cid=${obj.regId}" onClick="return confirmActive()">ACTIVATE</a>
+							
+						</c:otherwise>
+					</c:choose>
+					 <%-- <c:if test="${obj.deleteStatus eq null}">
 				<a href="delete?cid=${obj.regId}" onClick="return confirmDelete()">DELETE</a>
 				<c:if test="${obj.deleteStatus eq 'ACTIVE' }  ">
 				<a  onClick="return confirmActive()">ACTIVATE</a>
 				</c:if>
-				</c:if> --%>
-				
-				
-			  </td>
+				</c:if> --%></td>
 			</tr>
-			
-			
+
+
 		</c:forEach>
 		<tbody>
 		</tbody>

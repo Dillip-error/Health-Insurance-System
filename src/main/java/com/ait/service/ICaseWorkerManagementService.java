@@ -13,5 +13,7 @@ public interface ICaseWorkerManagementService {
 	
 	public CaseWorkerManagementBind getAccountDetailsBytempPwd(String pazzword,String email);
 	public Boolean updateAccountData(CaseWorkerManagementBind form);
+	
+	public Integer updateStatusCode(Integer id);
 
 }
