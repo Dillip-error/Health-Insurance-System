@@ -24,6 +24,10 @@
 	function confirmDelete() {
 		return confirm("Are yuo sure ..You want to delete");
 	}
+
+	function confirmActive() {
+		return confirm("Are yuo sure ..You want to Active");
+	}
 </script>
 </head>
 <body>
@@ -43,10 +47,34 @@
 				<td>${obj.firstName}${obj.lastName}</td>
 				<td>${obj.email}</td>
 				<td>${obj.role}</td>
-				<td><a href="delete?cid=${obj.regId}"
-					onClick="return confirmDelete()">DELETE</a> <a
-					href="edit?cid=${obj.regId}">EDIT</a></td>
+				
+				<td>
+				<a href="edit?cid=${obj.regId}">EDIT</a>
+				
+				
+				<c:choose>
+    <c:when test="${obj.deleteStatus eq null}">
+        
+   <a href="delete?cid=${obj.regId}" onClick="return confirmDelete()">DELETE</a>
+    </c:when>    
+    <c:otherwise>
+      <a  onClick="return confirmActive()">ACTIVATE</a>
+    </c:otherwise>
+</c:choose>
+				
+				
+				<%-- <c:if test="${obj.deleteStatus eq null}">
+				<a href="delete?cid=${obj.regId}" onClick="return confirmDelete()">DELETE</a>
+				<c:if test="${obj.deleteStatus eq 'ACTIVE' }  ">
+				<a  onClick="return confirmActive()">ACTIVATE</a>
+				</c:if>
+				</c:if> --%>
+				
+				
+			  </td>
 			</tr>
+			
+			
 		</c:forEach>
 		<tbody>
 		</tbody>

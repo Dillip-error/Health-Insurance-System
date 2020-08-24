@@ -17,5 +17,6 @@ public class CaseWorkerManagementBind {
 	private Date createdDate;
 	private Date updatedDate;
 	private String password;
+	private String deleteStatus;
 
 }

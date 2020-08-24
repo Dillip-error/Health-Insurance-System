@@ -13,6 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.AllArgsConstructor;
@@ -24,6 +25,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "CASEWORKERMANAGEMENTENTITY")
+@SQLDelete(sql = "UPDATE CASEWORKERMANAGEMENTENTITY set DELETE_STATUS='ACTIVE' where REG_ID=?"  )
 public class CaseWorkerManagementEntity {
 	@Id
 	@Column(name = "REG_ID")
@@ -52,5 +54,7 @@ public class CaseWorkerManagementEntity {
 	private Date updatedDate;
 	@Column(name = "PASSWORD")
 	private String password;
+	@Column(name = "DELETE_STATUS")
+	private String deleteStatus;
 	
 }
