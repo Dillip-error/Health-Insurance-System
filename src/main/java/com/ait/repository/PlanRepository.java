@@ -10,11 +10,10 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.ait.entity.PlanEntity;
 
-public interface PlanRepository extends JpaRepository<PlanEntity, Serializable> {
+public interface PlanRepository extends JpaRepository<PlanEntity,Serializable>{
 
 	@Transactional
 	@Modifying
-	@Query(value = "UPDATE PLAN_TABLE set DELETE_STATUS='null' where PLAN_ID=?", nativeQuery = true)
-	public Integer updateStatus(Integer PLAN_ID);
-
+	@Query(value="UPDATE PLAN_TABLE1 set DELETE_STATUS='null' where PLAN_ID=?",nativeQuery=true)
+	public Integer  updateStatus(Integer REG_ID);
 }

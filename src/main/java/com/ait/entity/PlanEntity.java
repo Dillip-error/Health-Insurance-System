@@ -23,8 +23,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "PLAN_TABLE")
-@SQLDelete(sql = "UPDATE PLAN_TABLE set DELETE_STATUS='ACTIVE' where PLAN_ID=?"  )
+@Table(name = "PLAN_TABLE1")
+@SQLDelete(sql = "UPDATE PLAN_TABLE1 set DELETE_STATUS='ACTIVE' where PLAN_ID=?"  )
 @Entity
 public class PlanEntity {
 

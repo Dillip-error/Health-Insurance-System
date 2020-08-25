@@ -52,7 +52,7 @@ public class PlanController {
 		List<PlanBinding> allPlan = service.getAllPlan();
 		model.addAttribute("allPlans", allPlan);
 
-		PlanBinding plan = new PlanBinding();
+		PlanEntity plan = new PlanEntity();
 		model.addAttribute("planEntity", plan);
 		return "planInfo";
 
@@ -76,7 +76,7 @@ public class PlanController {
 		return "planForm";
 
 	}
-
+//
 	@GetMapping("/active")
 	public String editStatusForActive(@RequestParam("pid") Integer pId, Model model) {
 		Integer updateStatusCode = service.updateStatusCode(pId);

@@ -7,7 +7,7 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
+<script type="text/javascript" src="../js/app.js"></script>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
@@ -50,16 +50,22 @@
 					<form:input type="text" class="form-control" placeholder="Plan name"
 						path="planName" id="pname"/>
 				</div>
+				<div class="col-4">
+					<span id="pNameError"></span>
+				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-4">
-					<label for="pdes"><b style="color: blue;">Plan Description</b></label>
+					<label for="dec"><b style="color: blue;">Plan Description</b></label>
 				</div>
 
 				<div class="col-4 p-1">
 					<form:textarea  class="form-control" placeholder="Plan Descriptio"
-						path="planDescription" id="pdes"></form:textarea>
+						path="planDescription" id="dec"></form:textarea>
+				</div>
+				<div class="col-4">
+					<span id="decError"></span>
 				</div>
 
 			</div>
