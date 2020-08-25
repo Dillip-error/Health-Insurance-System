@@ -13,5 +13,6 @@ public class PlanBinding {
 	private String endDate;
 	private Date createdDate;
 	private Date updatedDate;
+	private String deleteStatus;
 	
 }
